@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def galeria(request):
-    return render(request, 'galeria.html')
+def categorias(request):
+    return render(request, 'categorias.html')

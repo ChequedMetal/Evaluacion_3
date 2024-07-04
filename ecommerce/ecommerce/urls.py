@@ -1,5 +1,5 @@
-from django.urls import path
-from .views import index, contacto, empanadas, categorias, pago, guardar_direccion_envio
+from django.urls import path,  include
+from ecommerce.views import index, categorias, contacto, empanadas, Guardar_direccion_envio, pago
 """
 URL configuration for ecommerce project.
 
@@ -20,10 +20,12 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('ecommerce.urls')),
     path('', index.index, name='index'),
+    path('categorias/', categorias.categorias, name='categorias'),
     path('contacto/', contacto.contacto, name='contacto'),
     path('empanadas/', empanadas.empanadas, name='empanadas'),
-    path('categorias/', categorias.categorias, name='categorias'),
+    path('guardar_direccion_envio/', Guardar_direccion_envio.Guardar_direccion_envio, name='guardar_direccion_envio'),
     path('pago/', pago.pago, name='pago'),
-    path('guardar-direccion-envio/', guardar_direccion_envio.guardar_direccion_envio, name='guardar_direccion_envio'),
 ]
