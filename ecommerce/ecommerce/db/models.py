@@ -5,12 +5,14 @@ class Pedido(models.Model):
     nombres = models.CharField(max_length=180)
     apellido_paterno = models.CharField(max_length=180)
     apellido_materno = models.CharField(max_length=180)
-    codigo_region = models.CharField(max_length=2)
-    codigo_comuna = models.CharField(max_length=6)
+    direccion = models.CharField(max_length=250)
+    telefono = models.CharField(max_length=15)
+    correo_electronico = models.EmailField(max_length=254)
+    detalles_envio = models.TextField()
 
     class Meta:
         managed = True
-        db_table = 'Pedido'
+        db_table = 'pedido'
 
     def __str__(self):
-        return self.nombres
+        return f"{self.nombres} {self.apellido_paterno} {self.apellido_materno}"

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from ecommerce.models import Pedido 
+from ecommerce.db.models import Pedido
 
 def guardar_direccion_envio(request):
     if request.method == 'POST':
@@ -20,7 +20,7 @@ def guardar_direccion_envio(request):
             )
             pedido.save()
             messages.success(request, 'Datos almacenados.')
-            return redirect('pago')
+            return redirect('pago') 
         else:
             messages.error(request, 'Rellene los campos vacíos.')
 
