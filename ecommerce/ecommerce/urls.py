@@ -16,18 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ecommerce.db.models import vista
 from django.contrib.auth import views as auth_views
 from ecommerce.views import index, categorias, contacto, empanadas, Guardar_direccion_envio, pago
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('ecommerce.urls')),
     path('', index.index, name='index'),
     path('categorias/', categorias.categorias, name='categorias'),
     path('contacto/', contacto.contacto, name='contacto'),
     path('empanadas/', empanadas.empanadas, name='empanadas'),
-    path('guardar_direccion_envio/', Guardar_direccion_envio.Guardar_direccion_envio, name='guardar_direccion_envio'),
+    path('guardar_direccion_envio/', Guardar_direccion_envio.guardar_direccion_envio, name='guardar_direccion_envio'),
     path('pago/', pago.pago, name='pago'),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),   
