@@ -14,13 +14,12 @@ class Pedido(models.Model):
         managed = True
         db_table = 'pedido'
 
-    
-    class Articulo(models.Model):
-      nombre = models.CharField(max_length=50, blank=True, null=True)
-      descripcion = models.CharField(max_length=150, blank=True, null=True)  
-      precio = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-      imagen = models.CharField(max_length=300, blank=True, null=True)        
+class Articulo(models.Model):
+    nombre = models.CharField(max_length=50, blank=True, null=True)
+    descripcion = models.CharField(max_length=150, blank=True, null=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    imagen = models.CharField(max_length=300, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'articulo'   
+        db_table = 'articulo'
